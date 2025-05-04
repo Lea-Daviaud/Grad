@@ -1,0 +1,53 @@
+
+#logo {
+    width: 200px;
+}
+
+#menu {
+    width: 60%;
+    text-align: right;
+    float: right;
+}
+
+#entete {
+    text-align: center;
+}
+
+#titre {
+    text-align: center;
+    position: absolute;
+    top: 300px;
+    margin-left: 46%;
+    color: aliceblue;
+}
+
+
+#img_rea {
+    width: 400px;
+    margin: 20px;
+}
+
+article {
+    display : inline-block; 
+    width : 25%;
+}
+
+#vert {
+    background-color: rgb(150, 253, 90);
+}
+
+#jaune {
+    bottom: 0%;
+    background-color: rgb(255, 255, 112);
+}
+
+#articlejaune {
+    width: 14%;
+    text-align: center;
+}
+
+#boutoncontact {
+    float: right;
+    background-color: rgb(255, 255, 168);
+    font-size: 110%;
+}

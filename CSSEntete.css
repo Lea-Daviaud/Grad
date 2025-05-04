@@ -1,0 +1,121 @@
+.hero {
+    background: white;
+    padding: 20px 40px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#menu {
+    display: flex;
+    gap: 20px;
+}
+
+#menu a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.2s ease;
+}
+
+#menu a:hover {
+    color: #007B5E;
+}
+
+
+#logo {
+    height: 60px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px 20px;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .footer-top {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .footer-callout {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+  .text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  }
+  
+  .footer-button {
+    display: inline-block;
+    background-color: #ffd700;
+    color: #333;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    text-align: left;
+    margin-bottom: 30px;
+  }
+  
+  .footer-column {
+    flex: 1 1 250px;
+    margin: 20px;
+  }
+  
+  .footer-column h4 {
+    border-bottom: 2px solid #ffd700;
+    display: inline-block;
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    font-size: 1.1em;
+  }
+  
+  .footer-column p,
+  .footer-column ul {
+    font-size: 0.9em;
+    line-height: 1.6;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .footer-column ul li {
+    margin-bottom: 10px;
+  }
+  
+  .footer-column ul li a {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .footer-column ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  .social-icons a img {
+    width: 24px;
+    margin-right: 10px;
+    filter: brightness(0) invert(1);
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    font-size: 0.85em;
+    border-top: 1px solid #444;
+    padding-top: 15px;
+  }
+  
