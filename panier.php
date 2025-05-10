@@ -1,6 +1,6 @@
 <?php
 session_start();
-$pdo = new PDO('mysql:host=localhost;dbname=nom_de_ta_base;charset=utf8', 'utilisateur', 'motdepasse');
+$pdo = new PDO('mysql:host=localhost;dbname=grad;charset=utf8', 'root', '');
 
 $panier = $_SESSION['panier'] ?? [];
 $produits = [];
@@ -28,6 +28,7 @@ function totalPanier($produits, $panier) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+     <?php include "entete.php"; ?>
 <div class="container py-5">
     <h1 class="text-center mb-4">Votre Panier</h1>
 
@@ -77,5 +78,6 @@ function totalPanier($produits, $panier) {
         </div>
     <?php endif; ?>
 </div>
+ <?php include "piedpage.php"; ?>
 </body>
 </html>

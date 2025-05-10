@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$pdo = new PDO('mysql:host=localhost;dbname=nom_de_ta_base;charset=utf8', 'utilisateur', 'motdepasse');
+$pdo = new PDO('mysql:host=localhost;dbname=grad;charset=utf8', 'root', '');
 
 $nom = $_POST['nom'] ?? '';
 $email = $_POST['email'] ?? '';

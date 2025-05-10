@@ -20,9 +20,9 @@
             echo "Bienvenue ",$surname," ",$nom,". Votre formulaire a bien été envoyé. ";
             try {
                 $dbh = new PDO(            
-                'mysql:host=localhost;dbname=Contact;charset=utf8',
-                'mysql',
-                'mysql'
+                'mysql:host=localhost;dbname=grad;charset=utf8',
+                'root',
+                ''
             );
             $CP = $_POST["CP"];
             $ville = $_POST["ville"];

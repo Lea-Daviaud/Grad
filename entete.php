@@ -21,7 +21,9 @@
 
 <!-- Vérification de la session pour afficher Connexion/Deconnexion -->
 <?php
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 if (isset($_SESSION['user_id'])) {
     echo '<li class="nav-item"><a class="nav-link text-dark fw-semibold" href="./deconnexion.php">Se déconnecter</a></li>';
 } else {

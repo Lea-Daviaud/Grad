@@ -17,14 +17,6 @@
 
     <?php include "entete.php"; ?>
 
-    <section class="hero-banner text-center py-5 bg-light">
-        <div class="container">
-            <h1 class="display-4">Bienvenue chez GRAD</h1>
-            <p class="lead">Leader national en aménagements extérieurs bois & innovation technique</p>
-            <a href="./prestations.php" class="btn btn-primary btn-lg">Découvrir nos prestations</a>
-        </div>
-    </section>
-
     <main class="container py-5">
         <section class="info-block mb-5">
             <h2>GRAD, votre spécialiste bois</h2>

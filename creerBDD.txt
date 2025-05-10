@@ -1,0 +1,80 @@
+-- 1. Création de la base de données
+CREATE DATABASE IF NOT EXISTS grad CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE grad;
+
+-- 2. Création des tables
+
+-- Table produits
+CREATE TABLE IF NOT EXISTS produits (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(255) NOT NULL,
+    description TEXT,
+    prix DECIMAL(10,2) NOT NULL,
+    image VARCHAR(255)
+);
+
+-- Table utilisateur
+CREATE TABLE IF NOT EXISTS utilisateur (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(255),
+    email VARCHAR(255) UNIQUE NOT NULL,
+    mot_de_passe VARCHAR(255) NOT NULL
+);
+
+-- Table client
+CREATE TABLE IF NOT EXISTS client (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(255) NOT NULL,
+    surname VARCHAR(255) NOT NULL,
+    CP INT,
+    ville VARCHAR(255),
+    email VARCHAR(255),
+    tel BIGINT,
+    message TEXT
+);
+
+-- Table commandes
+CREATE TABLE IF NOT EXISTS commandes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nom VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL,
+    adresse VARCHAR(255),
+    date_commande DATETIME DEFAULT CURRENT_TIMESTAMP
+);
+
+-- Table commande_produits
+CREATE TABLE IF NOT EXISTS commande_produits (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    commande_id INT NOT NULL,
+    produit_id INT NOT NULL,
+    quantite INT NOT NULL,
+    prix_unitaire DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (commande_id) REFERENCES commandes(id) ON DELETE CASCADE,
+    FOREIGN KEY (produit_id) REFERENCES produits(id) ON DELETE CASCADE
+);
+
+-- 3. Fixtures
+
+-- Produits
+INSERT INTO produits (nom, description, prix, image) VALUES
+('Lame de terrasse bois composite', 'Lame en bois composite pour terrasse extérieure, résistance aux UV et à l\'humidité.', 34.90, 'images/terrasse_composite.jpg'),
+('Clôture bois ajourée', 'Panneau de clôture en bois autoclave, idéal pour délimiter votre jardin avec style.', 54.00, 'images/cloture_bois.jpg'),
+('Pergola en bois Douglas', 'Structure élégante en bois Douglas naturel, parfaite pour ombrager votre terrasse.', 899.00, 'images/pergola_douglas.jpg'),
+('Banc de jardin en bois massif', 'Banc extérieur fabriqué en bois massif imputrescible, confortable et durable.', 199.00, 'images/banc_bois.jpg');
+
+-- Utilisateur test
+INSERT INTO utilisateur (nom, email, mot_de_passe) VALUES
+('Admin Grad', 'admin@grad.com', SHA2('admin123', 256));
+
+-- Client test
+INSERT INTO client (nom, surname, CP, ville, email, tel, message) VALUES
+('Claire', 'Moreau', 44200, 'Nantes', 'claire.moreau@example.com', 0765123456, 'Je souhaite un devis pour une terrasse bois.');
+
+-- Commande test
+INSERT INTO commandes (nom, email, adresse) VALUES
+('Claire Moreau', 'claire.moreau@example.com', '12 rue des Peupliers, 44200 Nantes');
+
+-- Produits de la commande
+INSERT INTO commande_produits (commande_id, produit_id, quantite, prix_unitaire) VALUES
+(1, 1, 20, 34.90),  -- 20 lames de terrasse
+(1, 2, 5, 54.00);   -- 5 panneaux de clôture

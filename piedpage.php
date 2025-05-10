@@ -11,16 +11,16 @@
       <div class="col-md-4 mb-4">
         <h5 class="text-uppercase fw-bold mb-3">Suivez-nous</h5>
         <div class="d-flex gap-3">
-          <a href="#" class="text-white fs-4"><i class="bi bi-facebook"></i></a>
-          <a href="#" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
-          <a href="#" class="text-white fs-4"><i class="bi bi-linkedin"></i></a>
+          <a href="https://www.facebook.com/?locale=fr_FR" class="text-white fs-4"><i class="bi bi-facebook"></i></a>
+          <a href="https://www.instagram.com/" class="text-white fs-4"><i class="bi bi-instagram"></i></a>
+          <a href="https://fr.linkedin.com/" class="text-white fs-4"><i class="bi bi-linkedin"></i></a>
         </div>
       </div>
 
       <div class="col-md-4 mb-4">
         <h5 class="text-uppercase fw-bold mb-3">Liens utiles</h5>
         <ul class="list-unstyled">
-          <li><a href="#" class="text-white text-decoration-none">Nos prestations</a></li>
+          <li><a href="prestations.php" class="text-white text-decoration-none">Nos prestations</a></li>
           <li><a href="#" class="text-white text-decoration-none">Nos partenaires</a></li>
           <li><a href="#" class="text-white text-decoration-none">Mentions légales</a></li>
         </ul>
