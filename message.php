@@ -17,7 +17,7 @@
         $surname = $_POST["surname"];
         $carctspe = "#^[a-z0-9]+$#i";
         if (preg_match("/^([-a-z0-9ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ])+$/i"  , $nom) && preg_match("/^([-a-z0-9ÀÁÂÃÄÅÇÈÉÊËÌÍÎÏÒÓÔÕÖÙÚÛÜÝàáâãäåçèéêëìíîïðòóôõöùúûüýÿ])+$/i" , $surname)) {
-            echo "Bienvenue ",$surname," ",$nom,". Votre formulaire a bien été envoyé. ";
+           // echo "Bienvenue ",$surname," ",$nom,". Votre formulaire a bien été envoyé. ";
             try {
                 $dbh = new PDO(            
                 'mysql:host=localhost;dbname=grad;charset=utf8',
@@ -30,41 +30,21 @@
             $tel = $_POST["tel"];
             $message = $_POST["message"];
 
-            $sql = "INSERT INTO client VALUES ('$nom', '$surname', $CP, '$ville', '$email', $tel, '$message')";
+$sql = "INSERT INTO client (nom, surname, CP, ville, email, tel, message) 
+        VALUES (:nom, :surname, :CP, :ville, :email, :tel, :message)";
+$stmt = $dbh->prepare($sql);
+$stmt->execute([
+    ':nom' => $nom,
+    ':surname' => $surname,
+    ':CP' => $CP,
+    ':ville' => $ville,
+    ':email' => $email,
+    ':tel' => $tel,
+    ':message' => $message
+]);
 
-                $dbh->exec($sql);
+          echo "$surname $nom, votre formulaire a bien été envoyé.";
 
-                $lesLignes = $dbh->query("SELECT * FROM client ") ; 
-                echo "<table class='mytable'><caption>Formulaires</caption>";
-
-                while ($donnees = $lesLignes->fetch())
-                
-                {
-                
-                ?>
-                
-                    
-                <tr>
-                
-                    <?php            
-
-                   echo "<td>"; echo $donnees['nom']; echo "</td>";
-                   echo "<td>"; echo $donnees['prenom']; echo "</td>";
-                   echo "<td>"; echo $donnees['cp']; echo "</td>";
-                   echo "<td>"; echo $donnees['ville']; echo "</td>";
-                   echo "<td>"; echo $donnees['email']; echo "</td>";
-                   echo "<td>"; echo $donnees['tel']; echo "</td>";
-                   echo "<td>"; echo $donnees['message']; echo "</td>"; ?>
-                
-                </tr>
-                
-                <?php
-                
-                }
-                $reponse->closeCursor();
-                echo "</table>" ; 
-    ?>
-    <?php
 
             }
             catch (PDOException $e){
